@@ -2,54 +2,36 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#101326">
-<title>Идея дня — RandomLab</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090d20">
+<title>Звёздный ловец — мини-игра</title>
 <style>
-:root{color-scheme:dark;--bg:#101326;--panel:#191e38;--muted:#aab1d0;--text:#f7f7ff;--a:#a78bfa;--b:#5eead4}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--text);background:radial-gradient(ellipse at 15% 10%,#34245e 0,transparent 38%),radial-gradient(ellipse at 85% 80%,#123c49 0,transparent 35%),var(--bg);display:grid;place-items:center;padding:24px}
-.wrap{width:min(900px,100%)}header{display:flex;justify-content:space-between;align-items:center;margin-bottom:48px}.brand{font-weight:800;letter-spacing:.04em}.brand span{color:var(--b)}.pill{font-size:13px;color:var(--muted);border:1px solid #ffffff20;padding:8px 12px;border-radius:99px}
-main{max-width:720px;margin:auto}.eyebrow{color:var(--b);font-weight:700;text-transform:uppercase;letter-spacing:.16em;font-size:12px}h1{font-size:clamp(42px,8vw,76px);line-height:.98;letter-spacing:-.055em;margin:16px 0}h1 em{font-style:normal;color:var(--a)}.intro{color:var(--muted);font-size:18px;line-height:1.6;max-width:570px}
-.card{margin-top:34px;padding:clamp(24px,5vw,42px);border:1px solid #ffffff20;border-radius:28px;background:linear-gradient(145deg,#ffffff12,#ffffff06);box-shadow:0 24px 80px #0005;backdrop-filter:blur(16px)}
-.meta{display:flex;gap:10px;flex-wrap:wrap}.tag{font-size:12px;padding:7px 11px;border-radius:99px;background:#a78bfa20;color:#d8ccff}.tag.alt{background:#5eead420;color:#a8fff0}
-.idea{font-size:clamp(25px,4vw,36px);line-height:1.25;font-weight:750;letter-spacing:-.03em;margin:24px 0 14px}.desc{color:var(--muted);line-height:1.65;font-size:16px;min-height:52px}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}button{border:0;border-radius:14px;padding:14px 19px;font-size:15px;font-weight:750;cursor:pointer;transition:transform .18s,filter .18s}button:hover{transform:translateY(-2px);filter:brightness(1.08)}button:focus-visible{outline:3px solid white;outline-offset:3px}.primary{color:#111326;background:linear-gradient(100deg,var(--b),#a7f3d0)}.secondary{color:var(--text);background:#ffffff12;border:1px solid #ffffff24}
-footer{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:38px;color:#8991b5;font-size:13px}.counter{font-variant-numeric:tabular-nums}
-@media(max-width:560px){body{padding:18px}.wrap{padding-top:8px}header{margin-bottom:40px}.pill{font-size:11px}.intro{font-size:16px}.card{border-radius:22px}}
+:root{color-scheme:dark;--bg:#090d20;--panel:#121a35;--text:#f4f6ff;--muted:#aab5d5;--cyan:#71f3df;--violet:#a78bfa}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 0,#26376b 0,transparent 48%),var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;display:grid;place-items:center;padding:20px}
+main{width:min(760px,100%)}header{text-align:center;margin-bottom:24px}.logo{font-size:13px;letter-spacing:.22em;color:var(--cyan);font-weight:800}h1{font-size:clamp(40px,8vw,68px);letter-spacing:-.06em;margin:12px 0 8px}header p{color:var(--muted);margin:0}
+.panel{background:#121a35dc;border:1px solid #ffffff20;border-radius:26px;padding:22px;box-shadow:0 25px 90px #0007}
+.stats{display:flex;justify-content:space-between;gap:12px;margin-bottom:16px}.stat{background:#ffffff0b;border:1px solid #ffffff12;border-radius:14px;padding:12px 16px;flex:1;text-align:center}.stat small{display:block;color:var(--muted);font-size:12px}.stat b{font-size:24px;font-variant-numeric:tabular-nums}
+.arena{height:340px;position:relative;overflow:hidden;border-radius:18px;border:1px solid #ffffff18;background:radial-gradient(circle at 20% 30%,#ffffff12 0 1px,transparent 2px),radial-gradient(circle at 75% 65%,#ffffff18 0 1px,transparent 2px),linear-gradient(145deg,#101b3a,#171332);background-size:53px 53px,71px 71px,auto}
+.target{position:absolute;width:54px;height:54px;border:0;border-radius:50%;background:linear-gradient(145deg,#fff7b0,#ffd166 55%,#f59e0b);box-shadow:0 0 18px #ffd16699,0 0 45px #f59e0b55;cursor:pointer;font-size:27px;display:grid;place-items:center;transition:transform .12s}.target:hover{transform:scale(1.12)}.target:active{transform:scale(.88)}
+.overlay{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:20px;background:#080d20a8;backdrop-filter:blur(5px)}.overlay.hidden{display:none}.message{max-width:340px}.message h2{font-size:28px;margin:0 0 8px}.message p{color:var(--muted);line-height:1.5}
+button.action{background:linear-gradient(100deg,var(--cyan),#a7f3d0);color:#081322;border:0;border-radius:13px;padding:13px 20px;font-weight:800;font-size:15px;cursor:pointer}.hint{text-align:center;color:var(--muted);font-size:13px;margin:15px 0 0}
+@media(max-width:520px){.panel{padding:14px}.arena{height:380px}.stats{gap:7px}.stat{padding:10px 5px}.stat b{font-size:21px}}
 </style>
 </head>
-<body>
-<div class="wrap">
-<header><div class="brand">✳ RANDOM<span>LAB</span></div><div class="pill">маленькая искра для больших идей</div></header>
-<main>
-<div class="eyebrow">ТВОЙ МОМЕНТ ВДОХНОВЕНИЯ</div>
-<h1>Не знаешь,<br>что <em>придумать?</em></h1>
-<p class="intro">Нажми кнопку — и получи идею для проекта, творчества или просто интересного вечера. Никаких правил. Только любопытство.</p>
-<section class="card" aria-live="polite">
-<div class="meta"><span class="tag" id="category">🎨 Творчество</span><span class="tag alt" id="level">⚡ Легко начать</span></div>
-<div class="idea" id="idea">Создай плейлист для вымышленного фильма</div>
-<p class="desc" id="desc">Придумай название фильма, его сюжет и собери 7 треков, которые могли бы звучать в ключевых сценах.</p>
-<div class="actions"><button class="primary" id="next">✨ Другая идея</button><button class="secondary" id="copy">Копировать идею</button></div>
-</section>
-<footer><span>Сделано для тех, кто любит пробовать новое.</span><span class="counter">Идей просмотрено: <b id="count">1</b></span></footer>
-</main>
-</div>
+<body><main>
+<header><div class="logo">✦ МИНИ-ИГРА</div><h1>Звёздный ловец</h1><p>Лови звёзды и набирай очки за 20 секунд.</p></header>
+<section class="panel">
+<div class="stats"><div class="stat"><small>СЧЁТ</small><b id="score">0</b></div><div class="stat"><small>ВРЕМЯ</small><b><span id="time">20</span>с</b></div><div class="stat"><small>РЕКОРД</small><b id="best">0</b></div></div>
+<div class="arena" id="arena" aria-label="Игровое поле">
+<div class="overlay" id="overlay"><div class="message"><h2 id="title">Готов к полёту?</h2><p id="description">Нажимай на появляющиеся звёзды. У тебя будет 20 секунд!</p><button class="action" id="start">Начать игру</button></div></div>
+</div><p class="hint">Подсказка: звёзды появляются в разных местах поля ✨</p>
+</section></main>
 <script>
-const ideas=[
-["🎨 Творчество","⚡ Легко начать","Придумай название фильма, его сюжет и собери 7 треков, которые могли бы звучать в ключевых сценах.","Создай плейлист для вымышленного фильма"],
-["🧩 Мини-проект","🛠️ На выходные","Сделай одну страницу с таймером, списком дел и приятной анимацией завершения.","Собери свой мини-инструмент"],
-["📸 Фото-челлендж","🌿 Выйди наружу","Найди пять необычных текстур вокруг себя и собери из снимков маленькую фотогалерею.","Охота за текстурами"],
-["✍️ История","🌙 Для фантазии","Напиши историю из шести предложений, где каждое начинается со следующей буквы алфавита.","История по алфавиту"],
-["🎮 Игра","⚡ Легко начать","Придумай игру, в которой игроку можно пользоваться только одной кнопкой. Опиши правила и цель.","Игра с одной кнопкой"],
-["🌍 Исследование","🔎 Будь любопытным","Выбери случайную тему и найди три факта, которые удивят даже твоих друзей.","Три удивительных факта"],
-["🎧 Звук","🎙️ Попробуй новое","Запиши короткий аудиоколлаж из безопасных бытовых звуков и придумай ему название.","Звуковая открытка"],
-["🤝 Доброе дело","💚 Для людей","Сделай маленькую полезную памятку или инструкцию, которая поможет кому-то в учёбе или хобби.","Создай полезную шпаргалку"]
-];
-let last=0,count=1;
-const $=id=>document.getElementById(id);
-function next(){let n;do{n=Math.floor(Math.random()*ideas.length)}while(n===last&&ideas.length>1);last=n;const x=ideas[n];$("category").textContent=x[0];$("level").textContent=x[1];$("desc").textContent=x[2];$("idea").textContent=x[3];$("count").textContent=++count}
-$("next").addEventListener("click",next);
-$("copy").addEventListener("click",async()=>{const text=$("idea").textContent+" — "+$("desc").textContent;try{await navigator.clipboard.writeText(text);$("copy").textContent="✓ Скопировано";setTimeout(()=>$("copy").textContent="Копировать идею",1500)}catch{$("copy").textContent="Не удалось скопировать"}});
-</script>
-</body>
-</html>
+const arena=document.getElementById('arena'),overlay=document.getElementById('overlay'),scoreEl=document.getElementById('score'),timeEl=document.getElementById('time'),bestEl=document.getElementById('best');
+let score=0,time=20,active=false,clock=null,star=null,best=0;
+try{best=Number(localStorage.getItem('star-catcher-best'))||0}catch{}bestEl.textContent=best;
+function placeStar(){if(!active)return;if(star)star.remove();star=document.createElement('button');star.className='target';star.type='button';star.textContent='★';star.setAttribute('aria-label','Поймать звезду');const maxX=Math.max(0,arena.clientWidth-58),maxY=Math.max(0,arena.clientHeight-58);star.style.left=Math.round(Math.random()*maxX)+'px';star.style.top=Math.round(Math.random()*maxY)+'px';star.addEventListener('click',()=>{if(!active)return;score++;scoreEl.textContent=score;placeStar()});arena.appendChild(star)}
+function finish(){active=false;clearInterval(clock);if(star)star.remove();if(score>best){best=score;bestEl.textContent=best;try{localStorage.setItem('star-catcher-best',String(best))}catch{}}document.getElementById('title').textContent='Отличная игра!';document.getElementById('description').textContent='Ты поймал(а) '+score+' звёзд. Хочешь попробовать ещё раз?';document.getElementById('start').textContent='Играть снова';overlay.classList.remove('hidden')}
+function start(){score=0;time=20;active=true;scoreEl.textContent=score;timeEl.textContent=time;overlay.classList.add('hidden');placeStar();clearInterval(clock);clock=setInterval(()=>{time--;timeEl.textContent=time;if(time<=0)finish()},1000)}
+document.getElementById('start').addEventListener('click',start);
+</script></body></html>
