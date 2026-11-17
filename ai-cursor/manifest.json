@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "AI Cursor — помощник на странице",
+  "version": "0.1.0",
+  "description": "Показывает отдельный демонстрационный курсор на текущей вкладке по явному действию пользователя.",
+  "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_title": "AI Cursor",
+    "default_popup": "popup.html"
+  }
+}
